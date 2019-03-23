@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>雀雀</title>
+        <style>
+            *{margin:0;padding:0;}
+            li{list-style:none;}
+            img{border:none;}
+            #wrap{
+                /*position: absolute;*/
+                left: 0;
+                top: 0;
+                width: 200px;
+                height: 200px;
+                background-color: skyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <input type="text" id="box">
+        <script>
+            /*document.onkeydown = function () {
+                console.log(event.which);
+            }
+            document.onmousedown = function () {
+                console.log(event.which);
+            }*/
+            
+            /*box.onfocus = function () {
+                console.log("我被点了")
+            }
+            box.onblur = function () {
+                console.log("我失去你了")
+            }*/
+            // box.onchange = function () {
+            //     console.log("触发了");
+            // }
+            box.oninput = function () {
+                console.log("触发了");
+            }
+            /*document.onkeydown = function(e){ //上面这版本更简单
+                var key = e.keyCode;
+                if(key === 37 || key === 38 || key === 39 || key === 40)e.preventDefault()
+                switch(key){
+                    case 37://左边
+                        wrap.style.left = wrap.offsetLeft - 10 + "px"
+                        break;
+                    case 38://上边
+                        wrap.style.top = wrap.offsetTop - 10 + "px"
+                        break;
+                    case 39://右边
+                        wrap.style.left = wrap.offsetLeft + 10 + "px"
+                        break;
+                    case 40://下边
+                        wrap.style.top = wrap.offsetTop + 10 + "px"
+                        break;
+
+                }
+            }*/
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

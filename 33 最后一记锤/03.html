@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>雀雀</title>
+        <style>
+            *{margin:0;padding:0;}
+            li{list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 200px;
+                height: 40px;
+                border:1px solid #000;
+                margin: 100px auto;
+            }
+            #search{
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 25px;
+                text-indent: 10px;
+
+            }
+            #box{
+                position: absolute;
+                width: 200px;
+                top: 40px;
+            }
+            li{
+                height: 30px;
+                line-height: 30px;
+                border-bottom: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <input type="text" id="search">
+            <ul id="box">
+
+            </ul>
+        </div>
+        <!--<img src="https://m.360buyimg.com/babel/jfs/t1/22943/21/9379/100120/5c7df203E88ddaa34/5ed10d3d844434de.jpg" alt="">-->
+        <!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
+        <!--<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E5%A4%A7%E5%AE%9D&sugmode=2&json=1&p=3&sid=1458_21104_20880_28608_28585_28557_28519_22159&req=2&bs=%E5%A4%A7%E5%AE%9D&pbs=%E5%A4%A7%E5%AE%9D&csor=0&pwd=%E5%A4%A7%E5%AE%9D&cb=jQuery110208526730147420261_1552052935307&_=1552052935317"></script>-->
+        <script>
+            /*fn({"q":"大宝","p":false,"bs":"大宝","csor":"0","status":0,"g":[ { "q": "大宝旗舰店", "t": "n", "st": { "q": "大宝旗舰店", "new": 0 } }, { "q": "大宝乳胶漆", "t": "n", "st": { "q": "大宝乳胶漆", "new": 0 } }, { "q": "大宝口红", "t": "n", "st": { "q": "大宝口红", "new": 0 } }, { "q": "大宝法王", "t": "n", "st": { "q": "大宝法王", "new": 0 } }, { "q": "大宝sod蜜怎么样", "t": "n", "st": { "q": "大宝sod蜜怎么样", "new": 0 } }, { "q": "大宝洗面奶", "t": "n", "st": { "q": "大宝洗面奶", "new": 0 } }, { "q": "大宝天天见", "t": "n", "st": { "q": "大宝天天见", "new": 0 } }, { "q": "大宝油漆", "t": "n", "st": { "q": "大宝油漆", "new": 0 } }, { "q": "大宝鉴", "t": "n", "st": { "q": "大宝鉴", "new": 0 } } ],"s":["大宝旗舰店","大宝乳胶漆","大宝口红","大宝法王","大宝sod蜜怎么样","大宝洗面奶","大宝天天见","大宝油漆","大宝鉴"]});
+
+
+            function fn(obj) {
+                console.log(obj);
+            }*/
+
+            /*
+            * https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E5%A4%A7%E5%AE%9D&cb=fn
+            * */
+            let search = document.getElementById("search")
+            let box = document.getElementById("box")
+
+            search.oninput = function () {
+                // 获取搜索关键词
+                let val = search.value
+                if(!val)return
+                let script = document.createElement("script")
+                script.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${val}&cb=fn`
+                document.body.appendChild(script)
+
+                //加载完就扔掉
+                script.onload = function () {
+                    document.body.removeChild(script)
+                }
+            }
+            function fn(obj) {
+                let arr = obj.s
+                let str = ""
+                for (let i = 0; i < arr.length; i++) {
+                    str += `<li>${arr[i]}</li>`
+                }
+                box.innerHTML = str
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
